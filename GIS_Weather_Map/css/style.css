@@ -1,0 +1,309 @@
+/* Đặt kích thước cho bản đồ full màn hình */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+/* Textbox tìm kiếm */
+#searchBox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+#searchBox input {
+    width: 300px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#searchBox button {
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border-radius:  10px 10px 10px 10px;
+    cursor: pointer;
+}
+
+
+
+#searchBox button img {
+    width: 16px;
+    height: 16px;
+}
+
+#clearButton {
+    padding: 10px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    color: black;
+}
+
+#clearButton:hover {
+    background-color: #bfbebe;
+}
+
+
+
+
+
+
+
+/* của duong */
+#weatherLayerButtons {
+    position: absolute;
+    top: 1%;
+    right: 10px;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 15px;
+    font-family: Arial, sans-serif;
+    display: flex; /* Sử dụng flexbox */
+    flex-direction: row; /* Sắp xếp nút theo hàng ngang */
+    gap: 10px; /* Khoảng cách giữa các nút */
+
+}
+
+#weatherLayerButtons button {
+    display: inline-block; /* Chuyển sang inline-block để giữ kích thước */
+    background: none;
+    border: none;
+    text-align: center; /* Căn giữa nội dung */
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#weatherLayerButtons button:hover {
+    background-color: #bfbebe;
+}
+
+#weatherLayerButtons button.active {
+    background-color: #007BFF;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#weatherLayerButtons input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.opacity-slider {
+    position: absolute;
+    right: 29%;
+    top: 9%;
+    width: 350px;
+    background-color: #f9f4eb;
+    padding: 5px 10px 5px 10px;
+    border-radius: 20px;
+    z-index: 1000;
+}
+
+.opacity-slider input[type="range"] {
+    width: 100%;
+    appearance: none;
+    height: 10px;
+    border-radius: 5px; 
+    background: #c4c4c4;
+}
+
+.opacity-slider.hidden {
+    display: none;
+}
+
+.legend {
+    position: absolute;
+    right: 29%;
+    top: 1%;
+    width: 350px;
+    height: 20px;
+    background: #f9f4eb;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.legend .gradient {
+    width: 350px;
+    height: 5px;
+    margin: 0 10px 0 10px;
+    border-radius: 20px;
+}
+
+#temperatureLegend .gradient {
+    background: linear-gradient(to right, #ecb0ff 0%, #8bd4f9 50%, #ffff00 75%, #ffaa00 90%, #ff0000 100%);
+}
+
+
+#cloudsLegend .gradient {
+    background: linear-gradient(to right, #ffffff, #dbdbdc, #c1c0c0);
+}
+
+#windLegend .gradient {
+    background: linear-gradient(to right, #0000FF, #00FFFF,#FFFF00, #FF4500,#FF0000);
+}
+
+#precipitationLegend .gradient {
+    background: linear-gradient(to right, #ffffff,#b6b7b6,#7676ff,#7bffa7,#ff6b6b);
+}
+
+#pressureLegend .gradient {
+    background: linear-gradient(to right, #0000ff, #00aaff, #ffff00, #ffaa00, #ff0000);
+}
+
+.legend .labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 10px;
+}
+
+.legend.hidden {
+    display: none;
+}
+/* của duong */
+
+
+
+
+
+
+/* của bảo */
+#weatherInfo {
+    position: fixed;
+    background-color: white;
+    padding: 0.8vw;
+    top: 60px; /* Đặt top dưới #weatherLayerButtons (khoảng cách có thể thay đổi) */
+    right: 0.5vw;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 16vw;
+    z-index: 2;
+    margin: 0.5vw;
+}
+
+#weatherInfo h2 {
+    font-size: 1em; /* Giảm font size */
+  margin-bottom: 0.4em; /* Giảm margin */
+}
+
+#weatherInfo img {
+   width: 4em; /* Giảm size icon */
+    height: auto;
+  margin: 0.4em auto; /* Giảm margin */
+}
+#weatherInfo table {
+   width: 100%; /* bảng chiếm hết chiều rộng container */
+    border-collapse: collapse; /* làm cho các đường viền của bảng liền mạch */
+}
+#weatherInfo  th, td {
+  border: 1px solid #ddd; /* đường viền cho ô */
+   padding: 0.4em; /* Giảm padding */
+   text-align: left;
+    font-size: 0.7em; /* Giảm font size */
+
+}
+#weatherInfo  th {
+  font-weight: bold; /* làm cho label in đậm */
+ width: 40%; /* Cột nhãn chiếm 40% chiều rộng */
+}
+#weatherInfo  td {
+   width: 60%;
+}
+#forecastContainer {
+ position: fixed; /* Đặt forecastContainer cố định */
+   bottom: 0; /* Đặt container ở dưới cùng */
+   left: 0;
+  right: 0; /* Chiếm toàn bộ chiều rộng */
+  margin: 0 auto; /* Căn giữa container */
+  background-color: white;
+   padding: 0.5vw; /* Giảm padding */
+   border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+ overflow-x: auto;
+    white-space: nowrap;
+  z-index: 2; /* Đặt z-index cao hơn map để đè lên */
+
+  
+}
+
+.forecastDay {
+    margin-bottom: 0.5vw; /* Giảm margin */
+   text-align: left;
+  display: inline-block;
+ vertical-align: top;
+   padding: 0.4vw; /* Giảm padding */
+ border: 1px solid #ddd;
+}
+
+.forecastDay h3 {
+   margin-bottom: 0.4em; /* Sử dụng đơn vị em */
+}
+
+.forecastItem {
+   display: inline-flex;
+   align-items: center;
+    padding: 0.4vw; /* Giảm padding */
+   margin-bottom: 0.3vw; /* Giảm margin */
+  border: 1px solid #ccc;
+}
+.forecastItem img {
+  width: 2.5em; /* Giảm size icon */
+  height: 2.5em; /* Giảm size icon */
+  margin-right: 0.5vw; /* Giảm margin */
+  margin-left: 0.3vw; /* Giảm margin */
+}
+
+.forecastItem .temp-unit {
+  font-size: 1.2em; /* Giảm kích thước chữ */
+    font-weight: bold;
+    margin-right: 0.3vw; /* Giảm margin */
+}
+
+.forecastItem .temp-unit sup {
+   font-size: 0.4em; /* Giảm kích thước chữ */
+ margin-left: 1px;
+}
+.forecastItem .info {
+   margin-left: 0.5vw; /* Giảm margin */
+    display: flex;
+   flex-direction: column;
+}
+.forecastItem .info p{
+margin: 1px 0;
+}
+/* của bảo */
