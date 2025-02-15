@@ -62,3 +62,6 @@ const apiKey = '';
 và thêm key của API vừa tạo trên OpenWeatherMap.
 
 ## Khởi tạo một server trên php và chạy chương trình!
+
+## Tài liệu chi tiết:
+- [Tài liệu](https://docs.google.com/document/d/1w-8lnT85wBmHRz_gu31z22IBAgfdOhEfYIr4_FODTF0/edit?fbclid=IwY2xjawIdIf5leHRuA2FlbQIxMAABHQHqpHxKasV0M8ZkJ6AHFePjXJxTYHQhUfzcoImWOXgw5kVN8oq58dpz8Q_aem_nbOTcfuIb_nA8Z093FU7ig&tab=t.0)
