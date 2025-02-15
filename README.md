@@ -9,6 +9,7 @@
 - Chọn cấp độ chi tiết của khu vực để xem thông tin thời tiết ( Tỉnh hoặc Quận/huyện/thành phố )
 - Chọn một địa điểm bằng con trỏ chuột để xem thông tin thời tiết và dự báo thời tiết tại địa điểm đó.
 - Chọn và theo dõi các yếu tố thời tiết khác.
+- Tìm kiếm thông tin thời tiết của địa điểm theo dữ liệu nhập của người dùng.
   
 ## Các công cụ cần thiết
 - [x] [PostgreSQL](https://www.postgresql.org)
