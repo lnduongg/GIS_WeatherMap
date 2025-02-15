@@ -1,4 +1,4 @@
-const apiKey = 'c2db4dee35278bb4c148f0f8abd0d588';
+const apiKey = '';
 
 const weatherLayers = {
     clouds: `https://tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid=${apiKey}`,

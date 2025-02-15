@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$dbname = 'world';
-$user = 'postgres';
-$password = 'lnduong270403';
+$host = '';
+$dbname = '';
+$user = '';
+$password = '';
 
 $conn = pg_connect("host=$host dbname=$dbname user=$user password=$password");
 
@@ -19,7 +19,7 @@ $districtName = isset($_GET['districtName']) ? $_GET['districtName'] : null;
 if ($lon && $lat) {
     $query = "
         SELECT *, ST_AsGeoJSON(geom) AS geometry
-        FROM world_adm2
+        FROM <table_adm2>
         WHERE ST_Contains(geom, ST_SetSRID(ST_Point($lon, $lat), 4326))
         LIMIT 1;
     ";
@@ -39,7 +39,7 @@ if ($lon && $lat) {
 } elseif ($districtName) {
     $query = "
         SELECT *, ST_AsGeoJSON(geom) AS geometry
-        FROM world_adm2
+        FROM <table_adm2>
         WHERE LOWER(shapename) LIKE LOWER('%$districtName%')
         LIMIT 1;
     ";
